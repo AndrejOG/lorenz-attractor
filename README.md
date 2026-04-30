@@ -9,10 +9,12 @@ In 1963, meteorologist Edward Lorenz looks for a way of simplifying atmospheric 
 
 ## The System
 
-The Lorenz equations read:
+The Lorenz equations read :
 
 dx/dt = σ(y - x)
+
 dy/dt = x(ρ - z) - y
+
 dz/dt = xy - βz
 
 where σ is the Prandtl number, ρ the reduced Rayleigh number and β a geometric aspect ratio.
