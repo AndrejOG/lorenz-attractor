@@ -3,7 +3,7 @@ Numerical exploration of the Lorenz system : RK4 integration, 3D visualization, 
 
 ## Reference
 
-[1] Lorenz, E. N. (1963). *Deterministic Nonperiodic Flow*. 
-    Journal of the Atmospheric Sciences, 20(2), 130–141.
-    https://doi.org/10.1175/1520-0469(1963)020<0130:DNF>2.0.CO;2
+Lorenz, E. N., 1963: Deterministic Nonperiodic Flow. J. Atmos. Sci., 20, 130–141, https://doi.org/10.1175/1520-0469(1963)020<0130:DNF>2.0.CO;2.
+
+
 
