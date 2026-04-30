@@ -1,5 +1,5 @@
 # lorenz-attractor
-Numerical exploration of the Lorenz system : RK4 integration, 3D visualization,  butterfly effect via Lyapunov exponent estimation, and bifurcation diagram.  Implementation in Python (NumPy/Matplotlib).
+Numerical exploration of the Lorenz system : RK4 integration, 3D visualization,  butterfly effect via Lyapunov exponent estimation.  Implementation in Python (NumPy/Matplotlib).
 
 ![Lorenz attractor animation](lorenz_attractor.gif)
 
