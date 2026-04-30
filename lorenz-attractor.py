@@ -38,7 +38,9 @@ print("F(1,1,1) =", valeur_test)
 x = traj[:, 0]
 y = traj[:, 1]
 z = traj[:, 2]
-t = np.linspace(0, 50, len(traj)) # Vecteur temps
+t = np.linspace(0, 50, len(traj)) # time vector
+
+# 3D Figure
     
 fig = plt.figure(figsize=(9, 7))
 ax = fig.add_subplot(111, projection='3d')
@@ -63,12 +65,12 @@ axes[1].set_ylabel("z")
 # (y, z) projection
 
 axes[2].plot(traj[:, 1], traj[:, 2], lw=0.5, color='darkorange')
-axes[2].set_title("Projection (y, z)")
+axes[2].set_title("(y, z) projection")
 axes[2].set_xlabel("y")
 axes[2].set_ylabel("z")
 
 
-# Temporal series 
+# Time series 
 
 fig, axes = plt.subplots(3, 1, figsize=(10, 8), sharex=True)
 
@@ -82,7 +84,9 @@ axes[1].set_ylabel("y(t)")
 
 axes[2].plot(t, traj[:, 2], color='darkorange', lw=1)
 axes[2].set_ylabel("z(t)")
-axes[2].set_xlabel("Temps t")
+axes[2].set_xlabel("Time t")
+
+# Let's dive into the Butterfly effect, where two very close trajectories diverge
 
 t_end = 30
 N = int(t_end / h)
@@ -109,10 +113,11 @@ d = np.linalg.norm(traj2 - traj1, axis=1)
 fig, ax = plt.subplots(figsize=(10, 6))
 ax.plot(t, d, color='purple', lw=1.5)
 ax.set_yscale('log') # Semi-logarithmic scale on y axis
-ax.set_xlabel("Temps t")
-ax.set_ylabel("d(t) distance d(t) (log scale)")
+ax.set_xlabel("Time t")
+ax.set_ylabel("d(t) (log scale)")
 ax.set_title("Butterfly effect : the divergence of two (very) close trajectories")
 ax.grid(True, which="both", ls="--", alpha=0.5)
+
 
 # Now, let's estimate the Lyapunov exponent via linear regression.
 
@@ -128,6 +133,13 @@ log_d_reg = np.log(d[idx_start:idx_end])
 slope, intercept, r_value, p_value, std_err = linregress(t_reg, log_d_reg)
 lambda_1 = slope
 
-print(f"Estimated Lyapunov exponent : {lambda_1:.4f}" )
+d_fit = np.exp(intercept + slope * t_reg)
+ax.plot(t_reg, d_fit, 'k--', lw=2,
+        label=fr'Linear fit: $\lambda_1 \approx {lambda_1:.4f}$')
+ax.legend(loc='lower right', fontsize=11)
 
+plt.savefig('butterfly_effect.png', dpi=140, bbox_inches='tight')
 plt.show()
+
+
+print(f"Estimated Lyapunov exponent : {lambda_1:.4f}" )
