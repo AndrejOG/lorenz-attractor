@@ -50,7 +50,7 @@ N.B. : The separation d(t) does not start growing exponentially from t = 0, but 
 
 A linear regression on the exponential growth window yields a Lyapunov exponent of λ₁ ≈ 0.9047, in good agreement with the published reference value of 0.9056 (Sprott, 2003) as we get an incredibly small 0.1% error.
 
-## Reference
+## References
 
 Lorenz, E. N., 1963: Deterministic Nonperiodic Flow. J. Atmos. Sci., 20, 130–141, https://doi.org/10.1175/1520-0469(1963)020<0130:DNF>2.0.CO;2.
 
